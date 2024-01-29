@@ -993,11 +993,9 @@ enum_number! {
     /// [Discord docs](https://discord.com/developers/docs/resources/channel#message-object-message-types).
     #[derive(Clone, Copy, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd, Deserialize, Serialize)]
     #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
-    #[serde(from = "u8", into = "u8")]
     #[non_exhaustive]
     pub enum MessageType {
         /// A regular message.
-        #[default]
         Regular = 0,
         /// An indicator that a recipient was added by the author.
         GroupRecipientAddition = 1,
@@ -1064,7 +1062,6 @@ enum_number! {
     /// [Discord docs](https://discord.com/developers/docs/resources/channel#message-object-message-activity-types).
     #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Deserialize, Serialize)]
     #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
-    #[serde(from = "u8", into = "u8")]
     #[non_exhaustive]
     pub enum MessageActivityKind {
         Join = 1,
@@ -1113,12 +1110,11 @@ enum_number! {
     /// Message Reference Type information
     ///
     /// [Discord docs](https://discord.com/developers/docs/resources/message#message-reference-types)
-    #[derive(Clone, Copy, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd, Deserialize, Serialize)]
+    #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Deserialize, Serialize)]
     #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
-    #[serde(from = "u8", into = "u8")]
     #[non_exhaustive]
+    #[<default> = 0]
     pub enum MessageReferenceKind {
-        #[default]
         Default = 0,
         Forward = 1,
         _ => Unknown(u8),
@@ -1415,12 +1411,11 @@ enum_number! {
     /// Currently, there is only the one option.
     ///
     /// [Discord docs](https://discord.com/developers/docs/resources/poll#layout-type)
-    #[derive(Clone, Copy, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd, Deserialize, Serialize)]
+    #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Deserialize, Serialize)]
     #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
-    #[serde(from = "u8", into = "u8")]
     #[non_exhaustive]
+    #[<default> = 1]
     pub enum PollLayoutType {
-        #[default]
         Default = 1,
         _ => Unknown(u8),
     }
