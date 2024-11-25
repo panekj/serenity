@@ -1035,7 +1035,7 @@ impl PartialGuild {
     /// Calculate a [`Member`]'s permissions in the guild.
     #[inline]
     #[must_use]
-    #[deprecated = "Use PartialGuild::member_permissions_in, as this doesn't consider permission overwrites"]
+    #[deprecated = "Use PartialGuild::user_permissions_in, as this doesn't consider permission overwrites"]
     pub fn member_permissions(&self, member: &Member) -> Permissions {
         Guild::user_permissions_in_(
             None,
