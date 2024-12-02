@@ -513,7 +513,7 @@
     </span><span class="kw">fn </span>parse(values: Values) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>&gt; {
         validate(<span class="kw-2">&amp;</span>values, <span class="kw-2">&amp;</span>[ValueKind::Name, ValueKind::SingleList])<span class="question-mark">?</span>;
 
-        <span class="prelude-val">Ok</span>(values.literals.first().is_none_or(LitExt::to_bool))
+        <span class="prelude-val">Ok</span>(values.literals.first().map_or(<span class="bool-val">true</span>, LitExt::to_bool))
     }
 }
 
